@@ -39,3 +39,41 @@ a.button {
   display: flex;
   justify-content: space-evenly;
 }
+
+nav {
+  display: flex;
+  width: 90vw;
+  justify-content: space-evenly;
+  gap: 2rem;
+  margin-top: 1rem;
+
+  & > #logo {
+    flex-grow: 1;
+  }
+}
+
+#carousel {
+  position: relative;
+
+  & > img {
+    width: 8rem;
+    height: 5rem;
+    border-radius: var(--br);
+    object-fit: cover;
+    position: absolute;
+    transition: all 1.5s;
+    cursor: pointer;
+
+    top: 32rem;
+  }
+
+  & > img#focus {
+    top: 0;
+    left: -30rem !important;
+    width: 60rem;
+    height: 30rem;
+    cursor: auto;
+    box-shadow: color-mix(in srgb, var(--primary) 50%, transparent) 0px 0px 29px
+      0px;
+  }
+}
