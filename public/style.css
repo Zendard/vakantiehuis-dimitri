@@ -17,17 +17,21 @@ body {
 }
 
 h1 {
+  text-align: center;
   font-size: 3.125rem;
   font-weight: 600;
 }
 
-a.button {
+a.button,
+button {
+  border: none;
   color: var(--background);
   background-color: var(--primary);
   padding: 1rem 2rem;
   border-radius: var(--br);
   text-align: center;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .center {
@@ -38,6 +42,7 @@ a.button {
 .space {
   display: flex;
   justify-content: space-evenly;
+  gap: 1rem;
 }
 
 nav {
@@ -51,6 +56,23 @@ nav {
   & > #logo {
     flex-grow: 1;
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  button {
+    margin-top: 2rem;
+  }
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-spacing: 1rem;
 }
 
 #carousel {
@@ -78,5 +100,39 @@ nav {
     cursor: auto;
     box-shadow: color-mix(in srgb, var(--primary) 50%, transparent) 0px 0px 29px
       0px;
+  }
+}
+
+#calendar > tbody {
+  --free: color-mix(in srgb, var(--secondary) 60%, white);
+  & > tr > th {
+    text-align: center;
+    font-size: 2rem;
+
+    & > button {
+      background: none;
+      color: var(--text);
+      font-weight: 900;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  & > tr > td {
+    text-align: center;
+    width: 4rem;
+    height: 1rem;
+    border-radius: var(--br);
+  }
+
+  & > tr.data > td {
+    height: 4rem;
+    background-color: var(--free);
+    color: black;
+    font-size: 2rem;
+  }
+
+  & > .legend > td {
+    text-align: left;
   }
 }

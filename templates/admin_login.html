@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin Login</title>
+    <link href="/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav>
+      <img src="/img/logo.svg" alt="Logo" id="logo" />
+      <a href="/">Home</a>
+      <a href="/activiteiten">Activiteiten</a>
+    </nav>
+    <main>
+      <form action="/admin-login" method="POST">
+        <h1>Login</h1>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required />
+        <label
+          for="password"
+          style="color: red; display: none"
+          id="wrong-password"
+          >Wrong Password!</label
+        >
+        <button type="submit">Login</button>
+      </form>
+
+      <script src="/scripts/admin_login.js"></script>
+    </main>
+  </body>
+</html>

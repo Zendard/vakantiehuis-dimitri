@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalender</title>
+  <link href="/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <img src="/img/logo.svg" alt="Logo" id="logo" />
+    <a href="/">Home</a>
+    <a href="/activiteiten">Activiteiten</a>
+  </nav>
+  <div style="width: 37rem">
+    <table id="calendar">
+      <tr>
+        <th id="prev_month"><button>
+            < </button>
+        </th>
+        <th id="month_year" colspan="5">Maand Jaar</th>
+        <th id="next_month"><button> > </button></th>
+      </tr>
+
+      <tr id="weekdays">
+        <td>Ma</td>
+        <td>Di</td>
+        <td>Wo</td>
+        <td>Do</td>
+        <td>Vr</td>
+        <td>Za</td>
+        <td>Zo</td>
+      </tr>
+
+      <tr id="week_1" class="data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="week_2" class="data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="week_3" class="data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="week_4" class="data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="week_5" class="data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr id="week_6" class="data">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr></tr>
+      <tr class="legend">
+        <td style="background-color: var(--free);"></td>
+        <td>Vrij</td>
+      </tr>
+      <tr class="legend">
+        <td style="background-color: var(--accent);"></td>
+        <td>Geboekt</td>
+      </tr>
+
+      <script src="/scripts/calendar.js"></script>
+    </table>
+  </div>
+</body>
+
+</html>
