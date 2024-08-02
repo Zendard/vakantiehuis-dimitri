@@ -4,8 +4,6 @@ const month_year_display = document.getElementById("month_year")
 const days_display = document.querySelectorAll("#calendar>tbody>.data>td")
 const bookings = Array.from(document.querySelectorAll("#bookings>li")).map((node) => node.innerText.split("|").map((string) => Date.parse(string)))
 
-console.log(bookings)
-
 const months = [
   "Januari",
   "Februari",
@@ -27,14 +25,12 @@ date.setHours(0, 0, 0, 0)
 
 function next_month() {
   date.setMonth(date.getMonth() + 1)
-  console.log(date)
 
   update_display()
 }
 
 function prev_month() {
   date.setMonth(date.getMonth() - 1)
-  console.log(date)
 
   update_display()
 }
