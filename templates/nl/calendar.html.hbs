@@ -98,9 +98,14 @@
         <td>Geboekt</td>
       </tr>
 
-      <script src="/scripts/calendar.js"></script>
     </table>
   </div>
+  <ul id="bookings" style="display: none;">
+    {{#each bookings}}
+    <li>{{this.from}}|{{this.to}}</li>
+    {{/each}}
+  </ul>
+  <script src="/scripts/calendar.js"></script>
 </body>
 
 </html>

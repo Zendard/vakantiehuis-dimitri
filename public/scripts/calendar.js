@@ -2,6 +2,9 @@ const prev_button = document.getElementById("prev_month")
 const next_button = document.getElementById("next_month")
 const month_year_display = document.getElementById("month_year")
 const days_display = document.querySelectorAll("#calendar>tbody>.data>td")
+const bookings = Array.from(document.querySelectorAll("#bookings>li")).map((node) => node.innerText.split("|").map((string) => Date.parse(string)))
+
+console.log(bookings)
 
 const months = [
   "Januari",
@@ -48,6 +51,17 @@ function update_display() {
   const days_in_month = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
 
   for (day = 1; day <= days_in_month; day++) {
+    const ms = new Date(date.getFullYear(), date.getMonth(), day).getTime()
+
+    days_display[index].style.backgroundColor = "var(--free)"
+
+    bookings.forEach((booking) => {
+      if (booking[0] <= ms && ms <= booking[1]) {
+        days_display[index].style.backgroundColor = "var(--accent)"
+      } else {
+      }
+    })
+
     days_display[index].innerText = day
     index++
   }
@@ -55,8 +69,6 @@ function update_display() {
   days_display.forEach((item) => {
     if (item.innerText == "") {
       item.style.background = "none"
-    } else {
-      item.style.backgroundColor = "var(--free)"
     }
   })
 }

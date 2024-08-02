@@ -2,13 +2,11 @@ use rocket::request::{self, FromRequest, Request};
 use rocket::serde::{Deserialize, Serialize};
 use rocket::FromForm;
 use rocket::{http::Status, request::Outcome};
-use surrealdb::sql::Datetime;
-
 #[derive(Deserialize, Serialize)]
 #[serde(crate = "rocket::serde")]
 pub struct Booking {
-    from: Datetime,
-    to: Datetime,
+    from: String,
+    to: String,
     name: Option<String>,
 }
 
@@ -44,7 +42,7 @@ impl<'r> FromRequest<'r> for Admin {
 pub async fn get_bookings() -> Vec<Booking> {
     let bookings: Option<Vec<Booking>> = connect_to_db()
         .await
-        .query("SELECT from,to FROM booked")
+        .query("SELECT time::format(from, '%Y-%m-%d') AS from,time::format(to, '%Y-%m-%d') AS to FROM booked")
         .await
         .unwrap()
         .take(0)
