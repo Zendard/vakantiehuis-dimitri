@@ -1,7 +1,7 @@
 const img = document.querySelectorAll("#carousel>img")
 
 const IMG_SPACING = 3
-const IMG_WIDTH = 8
+const IMG_WIDTH = 10.25
 
 function placeImgs() {
   let index = 0

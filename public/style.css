@@ -17,8 +17,8 @@ body {
 }
 
 h1 {
-  font-size: 4.5rem;
-  font-size: 700;
+  font-size: 3.125rem;
+  font-weight: 600;
 }
 
 a.button {
@@ -46,6 +46,7 @@ nav {
   justify-content: space-evenly;
   gap: 2rem;
   margin-top: 1rem;
+  margin-bottom: 3rem;
 
   & > #logo {
     flex-grow: 1;
@@ -54,24 +55,26 @@ nav {
 
 #carousel {
   position: relative;
+  height: 37rem;
+  margin-bottom: 1rem;
 
   & > img {
-    width: 8rem;
-    height: 5rem;
+    width: 10.25rem;
+    height: 6rem;
     border-radius: var(--br);
     object-fit: cover;
     position: absolute;
     transition: all 1.5s;
     cursor: pointer;
 
-    top: 32rem;
+    top: 30.5rem;
   }
 
   & > img#focus {
     top: 0;
-    left: -30rem !important;
-    width: 60rem;
-    height: 30rem;
+    left: -25rem !important;
+    width: 50rem;
+    height: 28rem;
     cursor: auto;
     box-shadow: color-mix(in srgb, var(--primary) 50%, transparent) 0px 0px 29px
       0px;
