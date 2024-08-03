@@ -1,5 +1,8 @@
+use std::str::FromStr;
+
 use rocket::{form::Form, fs::NamedFile, http::CookieJar, response::Redirect};
 use rocket_dyn_templates::{context, Template};
+use surrealdb::sql::Datetime;
 
 #[macro_use]
 extern crate rocket;
@@ -26,6 +29,35 @@ async fn calendar_nl() -> Template {
 async fn admin(_admin: vakantiehuis_dimitri::Admin) -> Template {
     let bookings = vakantiehuis_dimitri::get_bookings().await;
     Template::render("admin", context! {bookings})
+}
+
+#[post("/admin/add-booking", data = "<form>")]
+async fn add_booking(form: Form<vakantiehuis_dimitri::Booking>) -> Redirect {
+    if form.from > form.to {
+        return Redirect::to("/admin?add-booking=wrongInput");
+    }
+
+    let mut overlap = false;
+
+    vakantiehuis_dimitri::get_bookings()
+        .await
+        .iter()
+        .for_each(|booking| {
+            if Datetime::from_str(&booking.from) <= Datetime::from_str(&form.to)
+                && Datetime::from_str(&form.from) <= Datetime::from_str(&booking.to)
+            {
+                overlap = true;
+            }
+        });
+    if overlap {
+        return Redirect::to("/admin?add-booking=alreadyBooked");
+    };
+
+    let error = vakantiehuis_dimitri::add_booking(form.into_inner()).await;
+    match error {
+        None => Redirect::to("/admin?add-booking=success"),
+        Some(_) => Redirect::to("/admin?add-booking=error"),
+    }
 }
 
 #[post("/admin-login", data = "<form>")]
@@ -59,7 +91,13 @@ fn rocket() -> _ {
     rocket::build()
         .mount(
             "/",
-            routes![language_chooser, admin, check_login, admin_login],
+            routes![
+                language_chooser,
+                admin,
+                check_login,
+                admin_login,
+                add_booking
+            ],
         )
         .mount("/nl", routes![index_nl, calendar_nl])
         .register("/", catchers![admin_login_catcher])

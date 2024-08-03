@@ -11,10 +11,27 @@
 <body>
   <nav>
     <img src="/img/logo.svg" alt="Logo" id="logo" />
-    <a href="/">Home</a>
-    <a href="/activiteiten">Activiteiten</a>
+    <a href="/nl">Home</a>
+    <a href="/nl/boeken">Boeken</a>
+    <a href="/nl/activiteiten">Activiteiten</a>
   </nav>
   <h1>Admin panel</h1>
+  <h3>Boekingen:</h3>
+  <ul style="margin-bottom: 3rem;">
+    {{#each bookings}}
+    <li>{{this.from}} - {{this.to}}</li>
+    {{/each}}
+  </ul>
+
+  <form action="/admin/add-booking" method="POST">
+    <h2>Boeking toevoegen:</h2>
+    <label for="from">Inchecken:</label>
+    <input type="date" name="from" required>
+    <label for="to">Uitchecken:</label>
+    <input type="date" name="to" required>
+    <button>Toevoegen</button>
+  </form>
+  <script src="/scripts/admin.js"></script>
 </body>
 
 </html>

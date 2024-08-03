@@ -2,11 +2,11 @@ use rocket::request::{self, FromRequest, Request};
 use rocket::serde::{Deserialize, Serialize};
 use rocket::FromForm;
 use rocket::{http::Status, request::Outcome};
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, FromForm)]
 #[serde(crate = "rocket::serde")]
 pub struct Booking {
-    from: String,
-    to: String,
+    pub from: String,
+    pub to: String,
     name: Option<String>,
 }
 
@@ -49,6 +49,19 @@ pub async fn get_bookings() -> Vec<Booking> {
         .ok();
 
     bookings.unwrap()
+}
+
+pub async fn add_booking(booking: Booking) -> Option<()> {
+    let result = connect_to_db()
+        .await
+        .query("CREATE booked SET from=<datetime>$from, to=<datetime>$to")
+        .bind(booking)
+        .await;
+
+    match result {
+        Ok(_) => None,
+        Err(_) => Some(()),
+    }
 }
 
 async fn connect_to_db() -> surrealdb::Surreal<surrealdb::engine::remote::ws::Client> {

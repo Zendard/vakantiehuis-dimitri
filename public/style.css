@@ -16,10 +16,18 @@ body {
   font-family: sans-serif;
 }
 
+html {
+  color-scheme: dark;
+}
+
 h1 {
   text-align: center;
   font-size: 3.125rem;
   font-weight: 600;
+}
+
+h3 {
+  margin-bottom: 0.5rem;
 }
 
 a.button,
@@ -59,13 +67,20 @@ nav {
 }
 
 form {
+  background-color: color-mix(in srgb, var(--background) 80%, white);
+  padding: 1rem 4rem;
+  border-radius: var(--br);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
 
   button {
     margin-top: 2rem;
+  }
+
+  input {
+    margin-bottom: 2rem;
   }
 }
 
