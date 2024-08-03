@@ -25,6 +25,11 @@ async fn calendar_nl() -> Template {
     Template::render("nl/calendar", context! {bookings})
 }
 
+#[get("/activiteiten")]
+async fn activities_nl() -> Option<NamedFile> {
+    NamedFile::open("templates/nl/activities.html").await.ok()
+}
+
 #[get("/admin")]
 async fn admin(_admin: vakantiehuis_dimitri::Admin) -> Template {
     let bookings = vakantiehuis_dimitri::get_bookings().await;
@@ -99,7 +104,7 @@ fn rocket() -> _ {
                 add_booking
             ],
         )
-        .mount("/nl", routes![index_nl, calendar_nl])
+        .mount("/nl", routes![index_nl, calendar_nl, activities_nl])
         .register("/", catchers![admin_login_catcher])
         .mount("/", rocket::fs::FileServer::from("public"))
         .attach(Template::fairing())
