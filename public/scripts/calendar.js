@@ -55,7 +55,6 @@ function update_display() {
     bookings.forEach((booking) => {
       if (booking[0] <= ms && ms <= booking[1]) {
         days_display[index].style.backgroundColor = "var(--accent)"
-      } else {
       }
     })
 
