@@ -102,6 +102,30 @@ nav {
   }
 }
 
+.card {
+  --width: clamp(10px, 80vw, 30rem);
+  display: block;
+  background-color: var(--background-secondary);
+  border-radius: var(--br);
+  width: var(--width);
+  height: calc(var(--width) * 0.8);
+  text-decoration: none;
+
+  & > img {
+    aspect-ratio: 1.5;
+    object-fit: cover;
+    width: 100%;
+    border-radius: var(--br) var(--br) 0 0;
+  }
+
+  & > h4 {
+    text-align: center;
+    color: var(--text);
+    font-size: 1.5rem;
+    margin: 0.5rem;
+  }
+}
+
 form {
   background-color: var(--background-secondary);
   padding: 1rem 4rem;
@@ -226,6 +250,14 @@ table {
     font-size: 1.7rem;
     font-weight: 700;
   }
+}
+
+#activities-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: clamp(10px, 90vw, 100rem);
+  justify-content: space-evenly;
+  gap: 1rem;
 }
 
 @keyframes bounce {
