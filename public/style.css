@@ -1,10 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap");
+
 :root {
   --text: #ffffff;
   --background: #1f1f1f;
+  --background-secondary: color-mix(in srgb, var(--background) 80%, white);
   --primary: #ffe66d;
   --secondary: #57bcff;
   --accent: #ffbf00;
-  --br: 0.75rem;
+  --br: 1rem;
 }
 
 body {
@@ -13,7 +16,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 html {
@@ -26,6 +29,11 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: 3rem;
+  margin-top: 4rem;
+}
+
 h3 {
   margin-bottom: 0.5rem;
 }
@@ -34,12 +42,28 @@ a.button,
 button {
   border: none;
   color: var(--background);
-  background-color: var(--primary);
+  background-color: var(--accent);
   padding: 1rem 2rem;
   border-radius: var(--br);
   text-align: center;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
+  cursor: pointer;
+  border: 0.2rem solid var(--accent);
+  transition: transform 0.2s;
+
+  &:hover {
+    background-color: var(--background);
+    color: var(--accent);
+  }
+}
+
+.cta {
+  animation: bounce-reverse 0.4s;
+}
+
+.cta:hover {
+  animation: bounce forwards 0.4s;
 }
 
 .center {
@@ -64,10 +88,22 @@ nav {
   & > #logo {
     flex-grow: 1;
   }
+
+  & > a {
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+
+    &:hover {
+      color: var(--secondary);
+    }
+  }
 }
 
 form {
-  background-color: color-mix(in srgb, var(--background) 80%, white);
+  background-color: var(--background-secondary);
   padding: 1rem 4rem;
   border-radius: var(--br);
   display: flex;
@@ -82,6 +118,14 @@ form {
   input {
     margin-bottom: 2rem;
   }
+}
+
+dialog {
+  border: none;
+  border-radius: var(--br);
+  background-color: var(--background-secondary);
+  padding: 0;
+  box-shadow: color-mix(in srgb, black 50%, transparent) 0 1rem 29px 0;
 }
 
 table {
@@ -126,10 +170,15 @@ table {
 
     & > button {
       background: none;
+      border: none;
       color: var(--text);
       font-weight: 900;
       font-size: 1.5rem;
       cursor: pointer;
+
+      &:hover {
+        color: var(--accent);
+      }
     }
   }
 
@@ -149,5 +198,60 @@ table {
 
   & > .legend > td {
     text-align: left;
+  }
+}
+
+#info-grid {
+  --length: clamp(10px, 90vw, 60rem);
+  width: var(--length);
+  margin-bottom: 1rem;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+
+  --primary-grid: color-mix(in srgb, var(--primary) 80%, white);
+  --secondary-grid: color-mix(in srgb, var(--secondary) 50%, black);
+
+  & > p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-grid);
+    color: var(--background);
+    padding: 2rem 2rem;
+    margin: 0;
+    text-align: center;
+    border-radius: var(--br);
+    font-size: 1.7rem;
+    font-weight: 700;
+  }
+}
+
+@keyframes bounce {
+  from {
+    scale: 1;
+  }
+
+  40% {
+    scale: 1.6;
+  }
+
+  to {
+    scale: 1.4;
+  }
+}
+
+@keyframes bounce-reverse {
+  from {
+    scale: 1.4;
+  }
+
+  40% {
+    scale: 0.8;
+  }
+
+  to {
+    scale: 1;
   }
 }
