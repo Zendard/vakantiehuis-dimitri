@@ -21,7 +21,8 @@ const months = [
 
 let date = new Date()
 date.setDate(1)
-date.setHours(0, 0, 0, 0)
+date.setUTCHours(0, 0, 0, 0)
+
 
 function next_month() {
   date.setMonth(date.getMonth() + 1)
@@ -47,7 +48,7 @@ function update_display() {
   const days_in_month = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
 
   for (day = 1; day <= days_in_month; day++) {
-    const ms = new Date(date.getFullYear(), date.getMonth(), day).getTime()
+    const ms = new Date(Date.UTC(date.getFullYear(), date.getMonth(), day)).getTime()
 
     days_display[index].style.backgroundColor = "var(--free)"
 

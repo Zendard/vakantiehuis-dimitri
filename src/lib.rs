@@ -42,7 +42,7 @@ impl<'r> FromRequest<'r> for Admin {
 pub async fn get_bookings() -> Vec<Booking> {
     let bookings: Option<Vec<Booking>> = connect_to_db()
         .await
-        .query("SELECT time::format(from, '%Y-%m-%d') AS from,time::format(to, '%Y-%m-%d') AS to FROM booked")
+        .query("SELECT time::format(time::floor(from, 1d), '%Y-%m-%d') AS from, time::format(time::floor(to,1d), '%Y-%m-%d') AS to FROM booked")
         .await
         .unwrap()
         .take(0)

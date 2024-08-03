@@ -16,7 +16,7 @@ async fn index_nl() -> Option<NamedFile> {
     NamedFile::open("templates/nl/index.html").await.ok()
 }
 
-#[get("/kalender")]
+#[get("/boeken")]
 async fn calendar_nl() -> Template {
     let bookings = vakantiehuis_dimitri::get_bookings().await;
     Template::render("nl/calendar", context! {bookings})
