@@ -86,10 +86,17 @@ nav {
   margin-bottom: 3rem;
 
   & > #logo {
-    flex-grow: 1;
+    width: 15rem;
   }
 
-  & > a {
+  & > div {
+    flex-grow: 1;
+    display: flex;
+    justify-content: right;
+    gap: 2rem;
+  }
+
+  & > div > a {
     text-decoration: none;
     color: var(--primary);
     font-weight: 600;
