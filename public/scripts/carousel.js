@@ -12,11 +12,7 @@ function placeImgs() {
 
     const style_string = `${starting_position + (IMG_WIDTH + (IMG_SPACING)) * index}rem`
 
-    console.log(style_string)
-
     img.style.left = style_string
-
-    console.log(img)
 
     index++
   })
@@ -30,9 +26,11 @@ function setFocus(index) {
 
   img[index].id = "focus"
 
-  if (index >= 4) { index = 0 }
+  index++
 
-  id = setTimeout(() => setFocus(index + 1), 6000)
+  if (index >= img.length) { index = 0 }
+
+  id = setTimeout(() => setFocus(index), 6000)
 }
 
 function addImgListeners() {
