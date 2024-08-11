@@ -215,11 +215,12 @@ table {
   --free: color-mix(in srgb, var(--secondary) 60%, white);
   & > tr > th {
     text-align: center;
-    font-size: 2rem;
+    font-size: clamp(10px, 5vw, 2rem);
 
     & > button {
       background: none;
       border: none;
+      padding: 0;
       color: var(--text);
       font-weight: 900;
       font-size: 1.5rem;
@@ -239,10 +240,10 @@ table {
   }
 
   & > tr.data > td {
-    height: 4rem;
+    height: clamp(10px, 8vw, 4rem);
     background-color: var(--free);
     color: black;
-    font-size: 2rem;
+    font-size: clamp(1px, 5vw, 2rem);
   }
 
   & > .legend > td {
