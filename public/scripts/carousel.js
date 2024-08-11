@@ -1,22 +1,5 @@
-const img = document.querySelectorAll("#carousel>img")
-
-const IMG_SPACING = 3
-const IMG_WIDTH = 10.25
-
-function placeImgs() {
-  let index = 0
-
-  const starting_position = (-(IMG_WIDTH / 2) - ((IMG_SPACING + IMG_WIDTH) * ((img.length - 1) / 2)))
-
-  img.forEach((img) => {
-
-    const style_string = `${starting_position + (IMG_WIDTH + (IMG_SPACING)) * index}rem`
-
-    img.style.left = style_string
-
-    index++
-  })
-}
+const img = document.querySelectorAll("#carousel>div>img")
+const main_img = document.querySelector("#carousel>img")
 
 let id
 
@@ -25,6 +8,8 @@ function setFocus(index) {
   document.getElementById("focus").id = ""
 
   img[index].id = "focus"
+  main_img.attributes.src.value = img[index].attributes.src.value
+
 
   index++
 
@@ -40,6 +25,5 @@ function addImgListeners() {
   }
 }
 
-placeImgs()
 setFocus(0)
 addImgListeners()
