@@ -81,12 +81,14 @@ nav {
   display: flex;
   width: 90vw;
   justify-content: space-evenly;
+  align-items: center;
   gap: 2rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
 
   & > #logo {
-    width: 15rem;
+    width: clamp(10px, 20vw, 15rem);
+    height: auto;
   }
 
   & > div {
@@ -201,7 +203,7 @@ table {
   }
   & > img {
     width: clamp(10px, 85vw, 46.125rem);
-    height: 27rem;
+    height: clamp(10px, 50vw, 27rem);
     border-radius: var(--br);
     object-fit: cover;
     box-shadow: color-mix(in srgb, var(--secondary) 50%, transparent) 0px 0px
@@ -256,6 +258,7 @@ table {
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+  font-size: clamp(1px, 4vw, 1.7rem);
 
   --primary-grid: color-mix(in srgb, var(--primary) 80%, white);
   --secondary-grid: color-mix(in srgb, var(--secondary) 50%, black);
@@ -266,12 +269,18 @@ table {
     justify-content: center;
     background-color: var(--primary-grid);
     color: var(--background);
-    padding: 2rem 2rem;
+    padding: clamp(10px, 2vw, 2rem);
     margin: 0;
     text-align: center;
     border-radius: var(--br);
-    font-size: 1.7rem;
     font-weight: 700;
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  #info-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
