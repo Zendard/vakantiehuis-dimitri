@@ -135,7 +135,7 @@ nav {
   }
 
   &:hover {
-    translate: 0 -2rem;
+    translate: 0 -1rem;
   }
 }
 
@@ -270,7 +270,7 @@ table {
   flex-wrap: wrap;
   width: clamp(10px, 90vw, 100rem);
   justify-content: space-evenly;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 @keyframes bounce {
