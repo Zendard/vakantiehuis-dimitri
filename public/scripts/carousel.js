@@ -9,6 +9,7 @@ function setFocus(index) {
 
   img[index].id = "focus"
   main_img.attributes.src.value = img[index].attributes.src.value
+  main_img.attributes.alt.value = img[index].attributes.alt.value
 
 
   index++
