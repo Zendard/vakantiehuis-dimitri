@@ -52,6 +52,11 @@ function update_display() {
 
     days_display[index].style.backgroundColor = "var(--free)"
 
+    const day_of_the_week = new Date(ms).getDay()
+    if (day_of_the_week > 0 && day_of_the_week < 5) {
+      days_display[index].style.backgroundColor = "var(--unavailable)"
+    }
+
     bookings.forEach((booking) => {
       if (booking[0] <= ms && ms <= booking[1]) {
         days_display[index].style.backgroundColor = "var(--accent)"

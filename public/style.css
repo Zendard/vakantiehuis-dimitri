@@ -212,6 +212,7 @@ table {
 
 #calendar > tbody {
   --free: color-mix(in srgb, var(--secondary) 60%, white);
+  --unavailable: gray;
   & > tr > th {
     text-align: center;
     font-size: clamp(10px, 5vw, 2rem);
@@ -250,6 +251,13 @@ table {
   }
 }
 
+#cost {
+  text-align: center;
+  & > h4 {
+    font-size: 1.4rem;
+  }
+}
+
 #info-grid {
   --length: clamp(10px, 90vw, 60rem);
   width: var(--length);
@@ -257,6 +265,7 @@ table {
   display: grid;
   grid-auto-rows: 1fr;
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row dense;
   gap: 1rem;
   font-size: clamp(1px, 4vw, 1.7rem);
 

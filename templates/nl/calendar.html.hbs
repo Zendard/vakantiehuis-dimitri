@@ -101,6 +101,10 @@
         <td style="background-color: var(--accent);"></td>
         <td>Geboekt</td>
       </tr>
+      <tr class="legend">
+        <td style="background-color: var(--unavailable);"></td>
+        <td style="text-wrap: nowrap;">Niet beschikbaar</td>
+      </tr>
 
     </table>
   </div>
@@ -109,7 +113,15 @@
     <li>{{this.from}}|{{this.to}}</li>
     {{/each}}
   </ul>
-  <h2 style="text-align: center; font-size: clamp(10px, 5vw, 2rem);">Om een periode te boeken stuurt u een mailtje naar
+  <div id="cost">
+    <h2>Tarieven</h2>
+    <h4>Laagseizoen(Okt-Apr): €560/weekend</h4>
+    <h4>Hoogseizoen(Mei-Sept): €630/weekend</h4>
+    <h5 style="margin-bottom: 0.5rem;">Alle prijzen incl. beddengoed, excl. schoonmaak(€50)</h5>
+    <h5>Een weekend loopt van vr. 16u tot ma. 10u</h5>
+  </div>
+  <h2 style="text-align: center; font-size: clamp(10px, 5vw, 2rem);">Om een periode te boeken stuurt u een mailtje
+    naar
     <address><a href="mailto:dimitri.vandenhoeck@hotmail.com">dimitri.vandenhoeck@hotmail.com</a></address>
     </h3>
     <script src="/scripts/calendar.js"></script>
