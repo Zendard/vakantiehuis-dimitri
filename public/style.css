@@ -206,8 +206,7 @@ table {
     height: clamp(10px, 50vw, 27rem);
     border-radius: var(--br);
     object-fit: cover;
-    box-shadow: color-mix(in srgb, var(--secondary) 50%, transparent) 0px 0px
-      29px 0px;
+    box-shadow: color-mix(in srgb, var(--secondary) 50%, transparent) 0px 0px 29px 0px;
   }
 }
 
@@ -264,7 +263,8 @@ table {
   --primary-grid: color-mix(in srgb, var(--primary) 80%, white);
   --secondary-grid: color-mix(in srgb, var(--secondary) 50%, black);
 
-  & > p {
+  & > p,
+  & > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -276,6 +276,11 @@ table {
     border-radius: var(--br);
     font-weight: 700;
     font-size: 1em;
+
+    & > ul {
+      margin: 0;
+      list-style: none;
+    }
   }
 }
 
