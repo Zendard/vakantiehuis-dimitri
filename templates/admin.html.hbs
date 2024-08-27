@@ -23,9 +23,13 @@
 
   <h1>Admin panel</h1>
   <h3>Boekingen:</h3>
-  <ul style="margin-bottom: 3rem;" id="bookings">
+  <ul style="margin-bottom: 3rem; list-style: none;" id="bookings">
     {{#each bookings}}
-    <li>{{this.from}} - {{this.to}}</li>
+    <div style="display: flex; justify-content: space-between; align-items: end ;width: 20rem;
+      padding-bottom: 0.2rem; margin-bottom: 1rem; border-bottom: solid 2px var(--background-secondary);">
+      <li>{{this.from}} - {{this.to}}</li>
+      <button class="delete" id="{{this.id}}">X</button>
+    </div>
     {{/each}}
   </ul>
 
@@ -41,6 +45,7 @@
   <dialog id="message">
     <form>
       <h1></h1>
+      <a href="/admin" style="display: none;" class="button">Ja</a>
       <button>Ok</button>
     </form>
   </dialog>
