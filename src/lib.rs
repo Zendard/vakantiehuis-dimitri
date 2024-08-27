@@ -70,6 +70,15 @@ pub async fn add_booking(booking: Booking) -> Option<()> {
     }
 }
 
+pub async fn delete_booking(id: String) {
+    connect_to_db()
+        .await
+        .query("DELETE type::thing('booked', $id_string)")
+        .bind(("id_string", id))
+        .await
+        .unwrap();
+}
+
 async fn connect_to_db() -> surrealdb::Surreal<surrealdb::engine::remote::ws::Client> {
     let db = surrealdb::Surreal::new::<surrealdb::engine::remote::ws::Ws>("localhost:5000")
         .await

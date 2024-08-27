@@ -65,6 +65,12 @@ async fn add_booking(form: Form<vakantiehuis_dimitri::Booking>) -> Redirect {
     }
 }
 
+#[get("/admin/delete/<id>")]
+async fn delete_booking(id: String) -> Redirect {
+    vakantiehuis_dimitri::delete_booking(id).await;
+    Redirect::to("/admin")
+}
+
 #[post("/admin-login", data = "<form>")]
 async fn check_login(
     form: Form<vakantiehuis_dimitri::AdminLogin>,
@@ -101,7 +107,8 @@ fn rocket() -> _ {
                 admin,
                 check_login,
                 admin_login,
-                add_booking
+                add_booking,
+                delete_booking
             ],
         )
         .mount("/nl", routes![index_nl, calendar_nl, activities_nl])
