@@ -86,7 +86,7 @@ nav {
   margin-top: 1rem;
   margin-bottom: 3rem;
 
-  & > #logo {
+  & > a > #logo {
     width: clamp(10px, 20vw, 15rem);
     height: auto;
   }
