@@ -1,6 +1,7 @@
 const add_booking_message = new URLSearchParams(document.location.search).get("add-booking")
 const dialog = document.getElementById("message")
 const dialog_text = dialog.querySelector("h1")
+const bookings_array = Array.from(document.getElementById("bookings").children)
 
 switch (add_booking_message) {
   case "success": {
@@ -31,3 +32,11 @@ switch (add_booking_message) {
     break
   }
 }
+
+bookings_array.forEach((booking) => {
+  from_to = booking.innerText.split(" - ");
+
+  booking.innerText = from_to[0].replaceAll("-", "/") + " - " + from_to[1].replaceAll("-", "/");
+
+})
+
