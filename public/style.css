@@ -196,6 +196,7 @@ table {
     display: flex;
     gap: 1rem;
     scroll-behavior: smooth;
+    padding-bottom: 1rem;
 
     & > img {
       width: 8.2rem;
