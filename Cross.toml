@@ -1,0 +1,7 @@
+[build.env]
+passthrough = [
+"ROCKET_SECRET_KEY",
+"ADMIN_PASSWORD",
+"DB_PASSWORD",
+"ROCKET_ADDRESS"
+]
