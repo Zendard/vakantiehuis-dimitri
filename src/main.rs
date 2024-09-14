@@ -7,12 +7,12 @@ use surrealdb::sql::Datetime;
 #[macro_use]
 extern crate rocket;
 
-#[get("/")]
-async fn language_chooser() -> Option<NamedFile> {
-    NamedFile::open("templates/language_chooser.html")
-        .await
-        .ok()
-}
+// #[get("/")]
+// async fn language_chooser() -> Option<NamedFile> {
+//     NamedFile::open("templates/language_chooser.html")
+//         .await
+//         .ok()
+// }
 
 #[get("/")]
 async fn index_nl() -> Option<NamedFile> {
@@ -102,16 +102,9 @@ fn rocket() -> _ {
     rocket::build()
         .mount(
             "/",
-            routes![
-                language_chooser,
-                admin,
-                check_login,
-                admin_login,
-                add_booking,
-                delete_booking
-            ],
+            routes![admin, check_login, admin_login, add_booking, delete_booking],
         )
-        .mount("/nl", routes![index_nl, calendar_nl, activities_nl])
+        .mount("/", routes![index_nl, calendar_nl, activities_nl])
         .register("/", catchers![admin_login_catcher])
         .mount("/", rocket::fs::FileServer::from("public"))
         .attach(Template::fairing())
