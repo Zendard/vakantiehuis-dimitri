@@ -126,7 +126,7 @@ nav {
   background-color: var(--background-secondary);
   border-radius: var(--br);
   width: var(--width);
-  height: calc(var(--width) * 0.8);
+  min-height: calc(var(--width) * 0.8);
   text-decoration: none;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: translate 0.2s;
