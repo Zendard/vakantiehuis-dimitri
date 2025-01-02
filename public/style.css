@@ -191,12 +191,13 @@ table {
 
   & > div {
     position: relative;
-    max-width: clamp(10px, 85vw, 80rem);
+    max-width: clamp(10px, 95vw, 80rem);
     overflow-x: scroll;
     display: flex;
     gap: 1rem;
     scroll-behavior: smooth;
     padding-bottom: 1rem;
+    mask-image: linear-gradient(to right, transparent 0%, black 48px, black calc(100% - 48px), transparent 100%);
 
     & > img {
       width: 8.2rem;
