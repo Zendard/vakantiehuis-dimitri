@@ -80,9 +80,11 @@ pub async fn delete_booking(id: String) {
 }
 
 async fn connect_to_db() -> surrealdb::Surreal<surrealdb::engine::remote::ws::Client> {
-    let db = surrealdb::Surreal::new::<surrealdb::engine::remote::ws::Ws>(env!("DB_PORT"))
-        .await
-        .unwrap();
+    let db = surrealdb::Surreal::new::<surrealdb::engine::remote::ws::Ws>(
+        &("127.0.0.1:".to_string() + env!("DB_PORT")),
+    )
+    .await
+    .unwrap();
 
     db.signin(surrealdb::opt::auth::Root {
         username: "root",
