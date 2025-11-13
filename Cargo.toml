@@ -6,4 +6,4 @@ edition = "2021"
 [dependencies]
 rocket = {version="0.5.1", features=["secrets", "json", "tls"]}
 rocket_dyn_templates = {version="0.2.0", features=["handlebars"]}
-surrealdb = "2.0.4"
+surrealdb = "2.3.10"
