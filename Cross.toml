@@ -3,5 +3,6 @@ passthrough = [
 "ROCKET_SECRET_KEY",
 "ADMIN_PASSWORD",
 "DB_PASSWORD",
+"DB_PORT",
 "ROCKET_ADDRESS"
 ]
